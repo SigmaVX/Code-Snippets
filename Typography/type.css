@@ -1,0 +1,28 @@
+.big {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: 700px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 4px;
+    font-variant: small-caps;
+}
+
+
+.small {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 1500px;
+    line-height: 20px;
+    font-style: oblique;
+    text-align: justify;
+}
+
+
+.wtf {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    line-height: 15px;
+    text-transform: uppercase;
+    text-decoration: red underline;
+}
