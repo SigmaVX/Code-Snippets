@@ -1,3 +1,38 @@
+a {
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 30px;
+    color: gold;
+    background-color: blue;
+    transform
+}
+
+/* visited - based on device  */
+a:visited {
+    color: green;
+    background-color: black;
+}
+
+/* based on mouse hover */
+a:hover {
+    font-size: 20px;
+    color: purple;
+    background-color: grey;
+}   
+
+/* based on click down */
+a:active {
+    font-size: 10px;
+    color: red;
+    background-color: grey;
+}   
+
+/* format the number position inside the ( ) or use event/odd */
+li:nth-child(even) {
+    background-color: purple;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .big {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -10,7 +45,7 @@
 
 
 .small {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 12px;
     font-weight: 1500px;
     line-height: 20px;
@@ -25,4 +60,16 @@
     line-height: 15px;
     text-transform: uppercase;
     text-decoration: red underline;
+}
+
+/* barcode font */
+.wtf2 {
+    font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 20px;
+    line-height: 35px;
+    
+}
+
+.icon {
+    font-size: 300px;
 }

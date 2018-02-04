@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bootstrap Layouts</title>
+
+    <!-- Bootsrap CDN Links -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!--  CSS -->
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    <h1>Bootsrap Layouts</h1>
+    <br>
+
+    <h3>Vertical Alignment - Columns</h3>
+    <div class="container">
+        <div class="row white" style="background-color: white">
+          <div class="col align-self-start">
+            One of three columns
+          </div>
+          <div class="col align-self-center">
+            One of three columns
+          </div>
+          <div class="col align-self-end">
+            One of three columns
+          </div>
+        </div>
+    </div>
+    <br>
+
+    <h3>Vertical Alignment - Rows Top</h3>
+    <div class="container">
+        <div class="row align-items-start white" style="background-color: white">
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+        </div>
+    </div>
+
+    <h3>Vertical Alignment - Rows Center</h3>
+    <div class="container">   
+        <div class="row align-items-center white" style="background-color: white">
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+        </div>
+    </div>
+
+    <h3>Vertical Alignment - Rows Bottom</h3>
+    <div class="container">    
+        <div class="row align-items-end white" style="background-color: white">
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+          <div class="col">
+            One of three columns
+          </div>
+        </div>
+    </div>
+    <br>
+
+        <h3>Split Columns</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col">col</div>
+                <div class="col">col</div>
+                <div class="w-100"></div>
+                <div class="col">col</div>
+                <div class="col">col</div>
+            </div>
+        </div>
+        <br>
+
+      <h3>Auto Width Columns</h3>
+      <div class="container">
+        <div class="row justify-content-md-center white" style="background-color: white">
+          <div class="col col-lg-2">
+            1 of 3
+          </div>
+          <div class="col-md-auto">
+            Variable width content - grows with the size of the content inside
+          </div>
+          <div class="col col-lg-2">
+            3 of 3
+          </div>
+        </div>
+        <div class="row white" style="background-color: white">
+          <div class="col">
+            1 of 3
+          </div>
+          <div class="col-md-auto">
+            Variable width content
+          </div>
+          <div class="col col-lg-2">
+            3 of 3
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <h3>Horizontal Layouts</h3>
+      <div class="container">
+            <div class="row justify-content-start white" style="background-color: white">
+              <div class="col-4">
+                One of two columns
+              </div>
+              <div class="col-4">
+                One of two columns
+              </div>
+            </div>
+            <div class="row justify-content-center white" style="background-color: white">
+              <div class="col-4">
+                One of two columns
+              </div>
+              <div class="col-4">
+                One of two columns
+              </div>
+            </div>
+            <div class="row justify-content-end white" style="background-color: white">
+              <div class="col-4">
+                One of two columns
+              </div>
+              <div class="col-4">
+                One of two columns
+              </div>
+            </div>
+            <div class="row justify-content-around white" style="background-color: white">
+                <div class="col-2">
+                    One of three columns
+                </div>
+                <div class="col-2">
+                    One of three columns
+                    </div>
+                <div class="col-2">
+                    One of three columns
+                </div>
+            </div>
+            <div class="row justify-content-between white" style="background-color: white">
+                <div class="col-2">
+                    One of three columns
+                </div>
+                <div class="col-2">
+                    One of three columns
+                    </div>
+                <div class="col-2">
+                    One of three columns
+                </div>
+            </div>
+          </div>
+          <br>
+
+          <h3>Columns With Order</h3>
+          <div class="container">
+            <div class="row">
+                <div class="col ">
+                    First
+                </div>
+                <div class="col order-10">
+                    Second 
+                </div>
+                <div class="col order-last">
+                    Third
+                </div>
+                <div class="col order-first">
+                    Fourth
+                </div>
+            </div>
+            </div>
+            <br>
+
+            <h3>Nesting</h3>
+            <div class="container">
+                <div class="row" style="background-color: white">
+                    <div class="col-sm-9">
+                        Level 1: .col-sm-9
+                        <div class="row" style="background-color: white">
+                        <div class="col-8 col-sm-6">
+                            Level 2: .col-8 .col-sm-6
+                        </div>
+                        <div class="col-4 col-sm-6">
+                            Level 2: .col-4 .col-sm-6
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <h3>Formating With Offsets</h3>
+            <div class="container">
+                <div class="row" style="background-color: white">
+                    <div class="col-md-4">.col-md-4</div>
+                    <div class="col-md-4 offset-md-4">.col-md-4 .offset-md-4</div>
+                </div>
+                <div class="row" style="background-color: white">
+                    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
+                </div>
+                <div class="row" style="background-color: white">
+                    <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
+                </div>
+            </div>
+            <br>
+
+            <h3>Formating With Auto Margin</h3>
+            <div class="container">
+                <div class="row" style="background-color: white">
+                    <div class="col-md-4">.col-md-4</div>
+                    <div class="col-md-4 ml-auto">.col-md-4 .ml-auto</div>
+                </div>
+                <div class="row" style="background-color: white">
+                    <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+                    <div class="col-md-3 ml-md-auto">.col-md-3 .ml-md-auto</div>
+                </div>
+                <div class="row" style="background-color: white">
+                    <div class="col-auto mr-auto">.col-auto .mr-auto</div>
+                    <div class="col-auto">.col-auto</div>
+                </div>
+            </div>
+            <br> 
+</body>
+</html>

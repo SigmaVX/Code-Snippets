@@ -1,0 +1,186 @@
+
+h1, h2, h3 {
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+h1 {
+    margin-bottom: 0px;
+}
+
+h2, h3 {
+    color: #4aaaa5;
+    border-bottom: 2px solid #dddddd;
+}
+
+p, form {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    text-align: justify;
+    color: #777777;
+}
+
+p:hover {
+    color: #6299fe;
+    font-weight: 650;
+}
+
+
+form:active {
+    color: #6299fe;
+}
+
+input {
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    text-align: justify;
+    color: #777777;
+}
+
+br {
+    margin: 20px;
+}
+
+nav {
+    padding-top: 30px;
+}
+
+nav a {
+    color: grey;
+    text-decoration: none;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 2px solid #cccccc;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+header h1 {
+    background-color: #4aaaa5;
+    color:#ffffff;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header nav {
+    color: grey;
+}
+
+footer {
+    background-color: #666666;
+    border-top: 3px solid #4aaaa5;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+}
+
+
+/* includes sticky footer */
+.mainbody {
+    background-image: url("../images/binding_dark.png");
+    background-repeat: repeat;
+    background-position: left;
+    padding: 3% 8%;
+    min-height: calc(100vh - 94px);
+}
+
+.cards{
+    float: left;
+}
+
+.bigbox {
+    display: inline-block;
+    background-color: #ffffff;
+    border: 2px solid #dddddd;
+    padding: 25px;
+}
+
+.linkbox {
+    background-color: #ffffff;
+    border: 2px solid #dddddd;
+    padding: 5px;
+    position: sticky;
+    height: 130px;
+    top: 10px;
+}
+
+.linkbox a {
+    text-decoration: none;
+}
+
+.linkbox h3 {
+    text-align: center;
+}
+
+.button {
+    background-color: #4aaaa5;
+    color: white;
+}
+
+.button:hover {
+    background-color: gold;
+    color: black;
+}
+
+.port-img {
+    margin-bottom: 15px;
+    margin-right: 5%;
+}
+
+.portfolio p {
+    width: 250px;
+    padding-top: 8px;
+    padding-bottom: 5px;   
+    font-size: 16px;
+    text-align: center;
+    background-color: #4aaaa5;
+    color: white;
+}
+
+.image-wrap {
+    position: absolute;
+    top: 125px;
+    left: 0px;
+    z-index: 1;
+}
+
+#about-img {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}
+#about-img:hover {
+    transform: rotate(180deg);
+    transition: 2s;
+}
+
+#messagebox {
+    height:200px;
+}
+
+@media only screen and (max-width: 768px) {
+
+h1 {
+    text-align: center;
+    width: 100%;
+    display: block;
+    margin-bottom: 0px;
+}
+
+nav {
+    text-align: center;
+    margin-right: 0px;
+    padding-bottom: 25px;
+}
+
+.port-img {
+    margin-left: 5px;
+}
+
+}
