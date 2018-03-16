@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Rock Paper Scissors Part 1</title>
+</head>
+
+<body>
+
+  <div id="game">
+    <!-- Create html element to hold user's guess -->
+    <p>User's guess:
+      <span id="user-guess"></span>
+    </p>
+    <!-- Create html element to hold computers's guess -->
+    <p>Computers's guess:
+      <span id="computer-guess"></span>
+    </p>
+    <!-- Create html element to hold wins -->
+    <p>Wins:
+      <span id="wins"></span>
+    </p>
+
+    <!-- Create html element to hold losses -->
+    <p>Losses:
+      <span id="losses"></span>
+    </p>
+
+    <!-- Create html element to hold ties -->
+    <p>Ties:
+      <span id="ties"></span>
+    </p>
+
+  </div>
+
+  <script type="text/javascript">
+    // Grab DOM/HTML Elements and store in variables
+    var userGuessHTML = document.getElementById('user-guess');
+    var computerGuessHTML = document.getElementById('computer-guess');
+    var winsHTML = document.getElementById('wins');
+    var lossesHTML = document.getElementById('losses');
+    var tiesHTML = document.getElementById('ties'); 
+
+    // Create a variable array to hold possible computer choices (r,p,s)
+    var choices = ['r','p','s'];
+
+    // Create variables for wins/losses/ties
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+
+    // Whenever a key is pressed, alert "pressed a button".
+    document.onkeyup = function(event) {
+      // Capture user's guess
+      var userGuess = event.key.toLowerCase();
+
+      // Generate a computer choice at random
+      var computerGuess = choices[Math.floor(Math.random() * choices.length)];
+
+      // Check user's guess against computer's choice with if/else statements
+      if ((userGuess === "r") || (userGuess === "p") || (userGuess === "s")) {
+        // Let's run the rest of the game
+
+        if ((userGuess === "r") && (computerGuess === "s")) {
+          wins++;
+        } else if ((userGuess === "r") && (computerGuess === "p")) {
+          losses++;
+        } else if ((userGuess === "s") && (computerGuess === "r")) {
+          losses++;
+        } else if ((userGuess === "s") && (computerGuess === "p")) {
+          wins++;
+        } else if ((userGuess === "p") && (computerGuess === "s")) {
+          losses++;
+        } else if ((userGuess === "p") && (computerGuess === "r")) {
+          wins++;
+        } else if (userGuess === computerGuess) {
+          ties++;
+        }
+
+        // Write results to HTML
+        userGuessHTML.textContent = userGuess;
+        computerGuessHTML.textContent = computerGuess;
+        winsHTML.textContent = wins;
+        lossesHTML.textContent = losses;
+        tiesHTML.textContent = ties;
+
+      } else {
+        alert("you don't know how to play rock paper scissors");
+      }
+
+      
+
+    };
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript DOM</title>
+
+<style>
+
+  .test {
+      color:white;
+      font-size: 20px;
+  }
+
+  .test2 {
+      color:blueviolet;
+      background-color: bisque;
+      font-size: 20px;
+  }
+
+</style>
+<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <h1>Drink Selection! - JS</h1>
+    <div id="drink-options-js"></div>
+    <br>
+
+  <h2>Drink Section - JQ</h2>
+    <div id="drink-options-jq"></div>
+
+
+  <script type="text/javascript">
+
+    var drinkList = [
+      "Coffee: $5",
+      "Espresso: $7",
+      "Cappuccino: $6",
+      "Latte: $4",
+      "Tea: $3",
+      "Ice Coffee: $6",
+      "Ice Espresso: $8",
+      "Ice Latte: $6",
+      "Ice Tea: $4"
+    ];
+
+    var drinksJS = document.getElementById("drink-options-js");
+    var drinksJQ = document.getElementById("drink-options-jq");
+   
+    // Using Regular JS for DOM
+      for(var i = 0; i < drinkList.length; i++){
+        var newDiv = document.createElement("div");
+        newDiv.innerHTML=(drinkList[i]);
+        drinksJS.appendChild(newDiv);
+        newDiv.setAttribute("class", "test");
+        newDiv.style.backgroundColor = "darkgrey";        
+      }
+
+      // Using jQuerry For DOM
+      for (var i=0; i<drinkList.length; i++){
+        var newDiv = $("<div>").html(drinkList[i]);
+        $("#drink-options-jq").append(newDiv);
+        $(newDiv).attr("class", "test2");
+      }
+    
+  </script>
+
+</body>
+</html>

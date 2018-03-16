@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+     <!-- Bootsrap CSS & jQuery CDN Links -->
+     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+ 
+     <!-- CSS & Font Files --> 
+     <link rel="stylesheet" href="./assets/css/style.css">
+
+    <style>
+
+        .btn-block {
+            padding-bottom: 10px;
+        }
+
+        .card-header, .jumbotron {
+            background-color: blue;
+            color: #ffffff;
+        }
+
+        .container{
+            margin-bottom: 20px;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <div class="row jumbotron text-center">
+            <h1 class="col-12 text-center">Time Tracker</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row card">
+            <div class="card-header">Information</div>
+              <table class="table" id="timetable">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            Employee Name
+                        </th>
+                        <th scope="col">
+                            Role
+                        </th>
+                        <th scope="col">
+                            Start Date
+                        </th>
+                        <th scope="col">
+                            Months Worked
+                        </th>
+                        <th scope="col">
+                            Monthly Rate
+                        </th>
+                        <th scope="col">
+                            Total Billed
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tableRows">
+
+                </tbody>
+            </table>   
+        </div>
+    </div>
+
+        
+
+    <div class="container">
+        <div class="row card">   
+            <div class="card-header">Add Employee</div>           
+            <form class="col-12" id="addCard">                   
+                <div class="form-group">
+                    <label for="employeeName">Employee Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role"  placeholder="Enter Role">
+                </div>
+                <div class="form-group">
+                    <label for="start-date">Start Date (DD/MM/YY)</label>
+                    <input type="text" class="form-control" id="start-date"  placeholder="Enter Role">
+                </div>
+                <div class="form-group">
+                    <label for="rate">Rate</label>
+                    <input type="text" class="form-control" id="rate" placeholder="Enter Rate">
+                </div>
+                <button type="submit" id="submit" class="btn btn-block">Submit</button>  
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap CDN & JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
+    <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAGkEkc-mF1CZKlPuED9HkzQHt3TLiP_64",
+        authDomain: "test-activities.firebaseapp.com",
+        databaseURL: "https://test-activities.firebaseio.com",
+        projectId: "test-activities",
+        storageBucket: "test-activities.appspot.com",
+        messagingSenderId: "964997701233"
+    };
+    firebase.initializeApp(config);
+
+    var database = firebase.database();
+
+    $("#submit").on("click", function(event){
+
+        event.preventDefault();
+
+        // grabs the user entered values from the html
+        var name = $("#name").val().trim();
+        var role = $("#role").val().trim();
+        var startDate = $("#start-date").val().trim();
+        var rate = $("#rate").val().trim();
+
+        // blank out forms after submit
+        $("#name").val("");
+        $("#role").val("");
+        $("#start-date").val("");
+        $("#rate").val("");
+        
+
+        console.log(name,role,startDate,rate);
+        
+        // saving local vars into firebase as new nodes
+        database.ref("timeProj").push({
+            name: name,
+            role: role,
+            startDate: startDate,
+            rate: rate,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        });
+    });
+
+
+    database.ref("timeProj").orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
+
+        // save date from firebase into local vars
+        name = snapshot.val().name;
+        role = snapshot.val().role;
+        startDate = snapshot.val().startDate;
+        rate = snapshot.val().rate;
+
+        // get number of months since start - note you set the format for your input in the area right after we list the date
+        var months = moment().diff(moment(startDate, "DD/MM/YY"), "months");
+        
+        var totalBill = parseInt(months) * parseInt(rate);
+
+
+        // put new local vars into html with JQ
+        var newRow = $("<tr>");
+            $("#tableRows").append(newRow);
+        var newName = $("<td>").html(name);
+            newRow.append(newName);
+        var newRole = $("<td>").html(role);
+            newRow.append(newRole);
+        var newDate = $("<td>").html(startDate);
+            newRow.append(newDate);
+        var newMonthsWorked = $("<td>").html(months);
+            newRow.append(newMonthsWorked);
+        var newMonthRate = $("<td>").html(rate);
+            newRow.append(newMonthRate);
+        var newTotalBilled = $("<td>").html(totalBill);
+            newRow.append(newTotalBilled);
+
+        });
+
+    </script>
+
+</body>
+</html>

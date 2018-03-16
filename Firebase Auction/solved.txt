@@ -1,0 +1,82 @@
+database.ref().on("value", function(snapshot) {
+
+  // If Firebase has a highPrice and highBidder stored (first case)
+  if (snapshot.child("highBidder").exists() && snapshot.child("highPrice").exists()) {
+
+    highPrice = snapshot.val().highPrice;
+    highBidder = parseInt(snapshot.val().highBidder);
+
+    $("#highest-price").html(highPrice);
+    $("#highest-bidder").html(highBidder);
+
+    console.log(snapshot.val());
+    // Set the variables for highBidder/highPrice equal to the stored values in firebase.
+    // highPrice = ...
+    // highBidder = ...
+
+
+    // Change the HTML to reflect the stored values
+
+
+    // Print the data to the console.
+
+
+  }
+
+  // Else Firebase doesn't have a highPrice/highBidder, so use the initial local values.
+  else {
+
+    // Change the HTML to reflect the initial values
+    $("#highest-price").html(initialBid);
+    $("#highest-bidder").html(initialBidder);
+
+    // Print the data to the console.
+    console.log(initialBid +" " + initialBidder);
+
+  }
+
+
+// If any errors are experienced, log them to console.
+}, function(errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+
+// --------------------------------------------------------------
+
+// Whenever a user clicks the submit-bid button
+$("#submit-bid").on("click", function(event) {
+  // Prevent form from submitting
+  event.preventDefault();
+
+  // Get the input values
+  var bidderPrice = parseInt($("#bidder-price").val().trim());
+  var bidder = $("#bidder-name").val().trim();
+ 
+
+  // Log the Bidder and Price (Even if not the highest)
+  if (bidderPrice > highPrice) {
+
+    // Alert
+    alert("You are now the highest bidder.");
+
+    // Save the new price in Firebase
+    database.ref().set({
+      highPrice: bidderPrice,
+      highBidder: bidder      
+    });
+
+    // Log the new High Price
+    console.log("high price" + bidderPrice);
+
+    
+
+    // Change the HTML to reflect the new high price and bidder
+
+  }
+
+  else {
+    // Alert
+    alert("Sorry that bid is too low. Try again.");
+  }
+
+});

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NYT Search App</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron bg-dark text-light text-center">
+      <h1 class="py-5">NYT Article Search</h1>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="card">
+          <h4 class="card-header">Search Form</h4>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="search-term">Search Term</label>
+                <input type="text" class="form-control" id="search-term" placeholder="Enter Search Term">
+                <small class="form-text text-muted">Required</small>
+              </div>
+              <div class="form-group">
+                <label for="article-amount">Amount of Articles</label>
+                <input type="number" class="form-control" id="article-amount" placeholder="Enter Search Term">
+                <small class="form-text text-muted">Not required - will default to 10</small>
+              </div>
+              <div class="form-group">
+                <label for="begin-date">Begin Date</label>
+                <input type="number" class="form-control" id="begin-date" placeholder="Enter Begin Date">
+                <small class="form-text text-muted">YYYYMMDD Format</small>
+              </div>
+              <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="number" class="form-control" id="end-date" aria-describedby="article number" placeholder="Enter End Date">
+                <small class="form-text text-muted">YYYYMMDD Format</small>
+              </div>
+              <button type="submit" class="btn btn-primary" id="search-button">Search</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-8" >
+        <div class="card">
+          <h4 class="card-header">Article Results</h4>
+          <div class="card-body" id="article-display">
+            <!-- ARTICLE CONTENT GOES HERE -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script>
+    
+    $("#search-button").on("click",function(event) {
+        event.preventDefault();
+        var search = $("#search-term").val();
+        console.log("search: " +search);
+
+  
+    
+
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+        url += '?' + $.param({
+        'api-key': "490e71fc0b4d4b368afcc9a1eae905fd",
+        'q': search
+        });
+        $.ajax({
+        url: url,
+        method: 'GET',
+        }).done(function(result) {
+        console.log(result);
+        }).fail(function(err) {
+        throw err;
+        });
+        
+        for (i = 0; i < 10; i++){
+        var headline = result.response.docs[i].headline.main;
+        var position = parseInt(i) + 1;
+        var url = result.response.docs[i].multimedia.web_url
+        var by = 
+
+
+        }
+    
+  
+  $("#article-display");
+
+
+    });
+  
+  </script>
+
+
+</body>
+</html>
