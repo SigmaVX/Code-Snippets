@@ -1,0 +1,15 @@
+{
+  "name": "OMDB Search With JSON Methods",
+  "version": "1.0.0",
+  "description": "",
+  "main": "OMDB-Search.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.85.0"
+  }
+}
