@@ -9,7 +9,8 @@ console.log("A good band is " + musicImport.good);
 console.log("A better band is " + musicImport.better);
 console.log("A best band is " + musicImport.best);
 
-// Alt Method With For In
+// Alt Method With For In Loop
+// Goes through each key in object as directed
 for (var key in musicImport){
     console.log("A " + key + " band is " + musicImport[key]);
 };
