@@ -1,0 +1,17 @@
+{
+  "name": "12-Top5000Schema",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "inquirer": "^5.2.0",
+    "mysql": "^2.15.0"
+  }
+}
