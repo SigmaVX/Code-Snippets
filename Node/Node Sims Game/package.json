@@ -1,0 +1,27 @@
+{
+  "name": "theclims",
+  "version": "1.0.0",
+  "description": "The SIMS, on your command line!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "lint": "eslint ."
+  },
+  "author": "Alex Rosenkranz",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "dotenv": "^4.0.0",
+    "inquirer": "^3.3.0",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.83.0",
+    "terminal-kit": "^1.13.12",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0"
+  }
+}
