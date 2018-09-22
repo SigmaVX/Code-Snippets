@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Methods</title>
+
+    <style>
+
+        body{
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+        }
+
+        input, button {
+            width: 50%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            height: 30px;
+        }
+
+        .outer {
+            width: 100%;
+            font-size: 30px;
+            background: turquoise;
+        }
+        .inner {
+            width: 50%;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            background:lightslategray;
+        }
+    
+    </style>
+
+
+</head>
+
+<body>
+    <section class="outer">
+        <div class="inner">
+            <h2>Enter A String<br>Over Five Char Is Best</h2>
+            <input type="text" name="userInfo" id="input-data"><br>
+            <button id="mybutton">See The Magic</button>
+        </div>
+    </section>
+
+    <section>
+
+        <h2>Converted To An Array: <span id="output"></span></h2>
+        <h2>Unshift (Add Items To Front Of Original Array): <span id="output-1"></span></h2>
+        <h2>Split (Turn Original String Into A New Array): <span id="output-2"></span></h2>
+        <h2>Slice (Cut Items In New Array): <span id="output-3"></span></h2>
+        <h2>Splice (Cut & Edit Items In Original Array): <span id="output-4"></span></h2>
+        <h2>Sorted (Original Array): <span id="output-5"></span></h2>
+        <h2>Number Reverse Sort (Original Array If Numbers): <span id="output-6"></span></h2>
+         
+    </section>
+
+
+
+</body>
+
+    <script>
+        document.getElementById("mybutton").onclick = function(event){
+            event.preventDefault();
+            const input = document.getElementById("input-data").value;
+                
+            // Build Array Based On Letters
+            let inputArray = [];
+            for(i=0; i < input.length; i++){
+                inputArray.push(input[i]);
+            }
+            document.getElementById("output").innerHTML = `[${inputArray}]`;
+
+            // Add Start To The Front
+            let unshift = inputArray.unshift("FRONT");
+            document.getElementById("output-1").innerHTML = `[${inputArray}]`;
+
+            // Split - only works on the string and not array
+            let split = input.split(" ");
+            document.getElementById("output-2").innerHTML = `[${split}]`;
+
+            // Slice 
+            let slice = inputArray.slice(2, 5);
+            document.getElementById("output-3").innerHTML = `[${slice}]`;
+
+            // Splice 
+            let splice = inputArray.splice(2,2,"ADDED THIS", "ADDED THAT");
+            document.getElementById("output-4").innerHTML = `[${inputArray}]`;
+
+            // Sorted
+            let sort = inputArray.sort();
+            document.getElementById("output-5").innerHTML = `[${sort}]`
+
+            // Sorted Large To Small - if Using Numbers
+            let newNumberArray = [];
+            for(i=0; i<inputArray.length; i++){
+                let testLetter = parseInt(inputArray[i]);
+                console.log("type test: ", typeof testLetter);
+                if(typeof testLetter === "number" && Number.isNaN(testLetter) === false){
+                    newNumberArray.push(testLetter);
+                    console.log(newNumberArray);
+                }
+            }
+
+            let numSort = newNumberArray.sort(function(a,b){return b-a});
+            // console.log("Sorted Array: ", numSort);
+            if(numSort.length<1){
+                document.getElementById("output-6").innerHTML = "No Numbers Were In Your Input String";
+            } else{
+                document.getElementById("output-6").innerHTML = `[${numSort}]`;
+            }
+        }
+        
+    </script>
+
+
+
+</html>
