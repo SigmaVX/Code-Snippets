@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+
+        body{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        input, button{
+            height: 30px;
+            border-radius: 5px;
+            width: 200px;
+            margin: 10px;
+        }
+
+        .out{
+            width: 100%;
+        }
+
+        .in{
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            text-align: center;
+        }
+        
+    </style>
+
+</head>
+
+<body>
+    <section class="out">
+        <div class="in">
+            <h1>Fibonacci Sequence</h1>
+            <input type="text" id="input" placeholder="Enter A Whole Number"><br>
+            <button id="enter">Submit</button>
+            <h2 id="answer"></h2>
+        </div>
+    </section>
+
+    <section class="out">
+        <div class="in">
+            <h2 id="answer"></h2>
+        </div>
+    </section>
+
+
+    <section class="out">
+            <div class="in">
+            <h2 id="build-answer"></h2>
+        </div>
+    </section>
+
+    <script>
+        // * Take an integer `n` and return the first `nth` numbers of the Fibonacci Sequence.
+        // * For example, if you call the function with the number `10`, you should get back an array with `[1,1,2,3,5,8,13,21,34,55]` (The first 10 numbers of the Fibonacci Sequence).
+
+        document.getElementById("enter").onclick = function (event) {
+            event.preventDefault();
+            let input = parseInt(document.getElementById("input").value);
+            console.log("Input & Type: ", input, typeof input);
+            let loopCount = parseInt(input);
+            console.log(loopCount);
+            let answerArray = [];
+            let buildArray = [];
+
+            if (isNaN(input) === true) {
+                document.getElementById("answer").innerHTML = "Invalid Number. Please Try Again";
+            }
+
+            if (input < 1) {
+                document.getElementById("answer").innerHTML =
+                    "Please Choose Another Number<br>It Is Not Possible To Calculate A Sequence With A Number Less than 1";
+            }
+
+            // Run Recursive Function To Find Sum Sequence
+            findAnswer = () => {
+
+                arraySum = (total, currentNumber) => {
+                    return total + parseInt(currentNumber);
+                }
+
+                // Adds All Numbers In Array
+                let sumAnswer = answerArray.reduce(arraySum, 0);
+                // console.log("Tests: ", answerArray, sumAnswer, priorTwoSum);
+
+                if (input < sumAnswer) {
+                    answerArray.pop();
+                    console.log(answerArray);
+                    document.getElementById("answer").innerHTML =
+                        `The Closest Fibonacci Sequenence<br>That Sums To Your Input Is<br>[${answerArray}]`;
+                } else {
+                    if (answerArray.length < 2) {
+                        console.log("Array Length Is: ", answerArray.length);
+                        console.log("Adding 1 To Array");
+                        answerArray.push(1);
+                        console.log(answerArray);
+                        findAnswer();
+                    }
+                    if (answerArray.length >= 2) {
+                        console.log("Array Length Is: ", answerArray.length);
+                        // Adds Last Two Numbers of The Array  
+                        let priorTwoSum = parseInt(answerArray[answerArray.length - 1]) + parseInt(answerArray[answerArray.length - 2]);
+                        console.log("Adding Sum Of Prior Two: ", priorTwoSum);
+                        answerArray.push(priorTwoSum);
+                        console.log(answerArray);
+                        findAnswer();
+                    }
+                }
+            }
+
+            findAnswer();
+
+            // Run Recursive To Build Sequence
+            buildSequence = () =>{
+               
+                if(loopCount>0 && buildArray.length<2){
+                    buildArray.push(1);
+                    loopCount = loopCount - 1;
+                    console.log("Loop Count: ", loopCount);
+                    console.log("Build Array: ", buildArray);
+                    buildSequence();
+                }
+                if(loopCount>0 && buildArray.length>=2){
+                    buildArray.push(parseInt(buildArray[buildArray.length-1])+parseInt(buildArray[buildArray.length-2]));
+                    loopCount = loopCount -1;
+                    console.log("Loop Count Left: ", loopCount);
+                    console.log("Build Array: ", buildArray);
+                    buildSequence();
+                }
+                if(loopCount===0){
+                    document.getElementById("build-answer").innerHTML = `The Fibonacci Sequence With ${input} Terms Is<br>[${buildArray}]`;
+                }
+            }
+
+            buildSequence();
+
+        }
+    </script>
+
+</body>
+
+</html>
