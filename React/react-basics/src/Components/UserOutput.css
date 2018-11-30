@@ -1,0 +1,10 @@
+.UserOutput{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background: #ddd;
+    color: #111;
+    text-align: center;
+    padding: 10px;
+}

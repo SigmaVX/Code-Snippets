@@ -1,0 +1,26 @@
+
+section{
+  margin: 40px 20px 20px 20x;
+}
+
+.App {
+  text-align: center;
+}
+
+.conditional-input{
+    height: 30px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 20px;
+    background: #003333;
+    color: #fff;
+    border-radius: 10px
+}
+
+.text-center{
+  text-align: center;
+  margin-top: 20px;
+}

@@ -64,10 +64,13 @@
 
         document.getElementById("enter").onclick = function (event) {
             event.preventDefault();
+            
             let input = parseInt(document.getElementById("input").value);
             console.log("Input & Type: ", input, typeof input);
+            
             let loopCount = parseInt(input);
             console.log(loopCount);
+            
             let answerArray = [];
             let buildArray = [];
 
@@ -141,6 +144,38 @@
             }
 
             buildSequence();
+
+
+            // Short Version To Build Sequence
+            let answer = [];
+
+            // reusable recursive function that builds the pattern 
+            // pushes pattern result into the array with each loop
+            fiboBuild = (number) =>{
+                if(number<2) {
+                    return number;
+                } else {
+                    return fiboBuild(number - 1) + fiboBuild(number -2); 
+                }
+            }
+
+            buildSequenceShort = (number) =>{
+
+                if(number<1){
+                    console.log('This Number Is Too Low');
+                } else {
+
+                    for(i=1; i<=number; i++){
+                        console.log(i);
+                        answer.push(fiboBuild(i));
+                    }
+                    
+                    console.log(answer);
+                }
+            }   
+            
+            buildSequenceShort(10);
+            
 
         }
     </script>

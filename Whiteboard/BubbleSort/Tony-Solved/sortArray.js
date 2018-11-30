@@ -78,7 +78,6 @@ sortThisArray = (event) => {
 }
 
 
-
 // Tony's Long Code
 sortArrayLong = () =>{
   let tempNum;
