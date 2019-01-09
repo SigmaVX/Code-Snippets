@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
-import * as actionType from "../../store/actions";
+import * as actionCreators from "../../store/actions/index";
 
 import CounterControl from '../../components/CounterControl/CounterControl';
 import CounterOutput from '../../components/CounterOutput/CounterOutput';
@@ -42,13 +42,25 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        onIncrementCounter: ()=>dispatch({type: actionType.INCREMENT}),
-        onDecrementCounter: ()=>dispatch({type: actionType.DECREMENT}),
-        onAddFiveCounter: ()=>dispatch({type: actionType.ADD_FIVE, value: 5}),
-        onSubtractFiveCounter: ()=>dispatch({type: actionType.SUBTRACT_FIVE, value: 5}),
-        storeResult: (result)=>{console.log("clicked"); return dispatch({type: actionType.STORE_RESULT, result:result})},
-        removeResult: (id)=>dispatch({type: actionType.REMOVE_RESULT, id: id})
+        onIncrementCounter: ()=>dispatch(actionCreators.increment()),
+        onDecrementCounter: ()=>dispatch(actionCreators.decrement()),
+        onAddFiveCounter: ()=>dispatch(actionCreators.addFive(5)),
+        onSubtractFiveCounter: ()=>dispatch(actionCreators.subtractFive(5)),
+        storeResult: (result)=>{console.log("clicked"); return dispatch(actionCreators.storeResult(result))},
+        removeResult: (id)=>dispatch(actionCreators.removeResult(id))
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+
+// Alternative If Not Using Action Creators
+// const mapDispatchToProps = (dispatch) =>{
+//     return {
+//         onIncrementCounter: ()=>dispatch({type: actionType.INCREMENT}),
+//         onDecrementCounter: ()=>dispatch({type: actionType.DECREMENT}),
+//         onAddFiveCounter: ()=>dispatch({type: actionType.ADD_FIVE, value: 5}),
+//         onSubtractFiveCounter: ()=>dispatch({type: actionType.SUBTRACT_FIVE, value: 5}),
+//         storeResult: (result)=>{console.log("clicked"); return dispatch({type: actionType.STORE_RESULT, result:result})},
+//         removeResult: (id)=>dispatch({type: actionType.REMOVE_RESULT, id: id})
+//     }
+// }
