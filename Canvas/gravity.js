@@ -10,7 +10,7 @@ const colors = ['#2185C5', '#7ECEFD', '#FFF6E5', '#FF7F66'];
 const mouse = {x: innerWidth / 2, y: innerHeight / 2}
 let gravity = 1;
 let friction = 0.80;
-let sideFriction = 0.25;
+let sideFriction = 0.5;
 let ball = null;
 
 // Utilities
@@ -83,14 +83,18 @@ class Ball {
                 this.dy += gravity;   
             }
 
-            if( (this.x + this.radius + this.dx > canvas.width) || 
-                (this.x - this.radius < 0)){
-                    this.dx = -this.dx;
+            if((this.x + this.radius + this.dx > canvas.width) || (this.x - this.radius < 0)){
+                this.dx = -this.dx;
             } 
+
+            // Change X Once On Floor & Slow It Over Time
+            if(Math.round(this.y + this.radius) === canvas.height){
+                console.log("hit");
+                this.x += this.dx * sideFriction;
+            }
 
             // Increment Velocity
             this.y += this.dy;
-            this.x += this.dx * sideFriction;
             this.draw()
         }
     }

@@ -54,7 +54,7 @@ class App extends Component {
       const curPage = lastUser.id;
       // Query With New Position
       this.getUsers(curPage);
-
+      // Updates Current Page
       this.setState({ page: curPage });
     }
     this.setState({ prevY: y });
