@@ -55,3 +55,24 @@ const findUnique = (stringText) =>{
 
 console.log("False: ", findUnique(stringFalse));
 console.log("True: ", findUnique(stringTrue));
+
+
+
+// Find If Strings Are The Same
+const stringCheck = (string1, string2) =>{
+    
+    let isMatch = true;
+    let stringArrayOne=string1.split("");
+    let stringArrayTwo=string2.split("");
+    
+
+    for(let i =0; i < stringArrayOne.length; i++){
+      if(stringArrayOne[i] !== stringArrayTwo[i]) isMatch = false;
+    }
+    
+    return isMatch;
+
+  }
+
+stringCheck("abc", "abc");
+stringCheck("abc", "bcd");

@@ -1,0 +1,26 @@
+@import "./Styles//variables";
+
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+header{
+  text-align: center;
+  height: $headerHeight;
+  &:hover{
+    cursor: pointer;
+    color: $primaryBlue;
+  }
+}
+
+.wrapper{
+  header{
+    &:hover{
+      .vudoo{
+        background-color: $primaryYellow;
+        color: #000;
+      }
+   }
+  }
+}

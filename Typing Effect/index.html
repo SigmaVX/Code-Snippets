@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html class="no-js"> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+   
+        <button onclick="typeWriter()">Click me</button>
+        <div id="demo"></div>
+        
+        <script async defer>
+            var txt = 'Tony Wible...Full Stack Developer And Agile Leader'; 
+            var speed = 1000; 
+            
+            function typeWriter() {
+                for(let i=0; i < txt.length; i++){
+                    setTimeout(()=>{
+                        document.getElementById("demo").innerHTML += txt[i];
+                    }, speed);
+                }
+
+                // if (i < txt.length) {
+                //     document.getElementById("demo").innerHTML += txt.charAt(i);
+                //     i++;
+                //     setTimeout(typeWriter, speed);
+                // }
+            }
+        </script>
+    </body>
+</html>

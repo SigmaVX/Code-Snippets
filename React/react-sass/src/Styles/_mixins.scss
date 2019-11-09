@@ -1,0 +1,9 @@
+@import "./variables";
+
+@mixin flexGrid($cols){
+    display: grid;
+    grid-template-columns: $cols;
+    grid-gap: 20px;
+    align-items: center;
+    justify-items: center;
+}

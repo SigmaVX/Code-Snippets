@@ -1,8 +1,8 @@
 // Tonys Code 
 // Key Steps 
 // ========================================================
-//  1. Create An Escape For Recusion Loop When Array Lenght = 1
-//  2. Set a Random Pivot Number and Left/Right Arrays - These Will Change With Cach Loop
+//  1. Create An Escape For Recusion Loop When Array Length = 1
+//  2. Set a Random Pivot Number and Left/Right Arrays - These Will Change With Each Loop
 //  3. Run an array loop looking at each number and if it is higher/lower - pusing into left/right arrays
 //  4. Run the recusion by concating the left, pivot, and right in a return line.
 // ========================================================

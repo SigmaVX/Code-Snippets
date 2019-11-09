@@ -1,0 +1,29 @@
+@import "./../Styles/variables";
+@import "./../Styles/defaults";
+@import "./../Styles/mixins";
+
+
+.box{
+    @extend box;
+    background-color: $primaryYellow;
+    color: #000;
+    &:hover{
+        background-color: $primaryBlue;
+        color: #FFF;
+    }
+}
+
+.letterGrid{
+    @include flexGrid(repeat(5, 1fr));
+}
+
+.subtitle{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+            
+.vudoo{
+    @extend sectionHeight;
+    background-color: $primaryGreen;
+}
