@@ -1,0 +1,36 @@
+
+@import "./variables"; // must be before bs import to overide with custom variables
+@import "node_modules/bootstrap/scss/bootstrap";
+
+// Required Minimal Imports If Opting Not For Full BS
+// @import "node_modules/bootstrap/scss/functions";
+// @import "node_modules/bootstrap/scss/variables";
+// @import "node_modules/bootstrap/scss/mixins";
+
+
+box{
+    border: 1px solid grey;
+}
+
+section{
+    height: 50vh;
+}
+
+h2{
+    text-align: center;
+}
+
+.boxGreen{
+    @extend box;
+    background-color: $primaryGreen;
+}
+
+.boxBlue{
+    @extend box;
+    background-color: $primaryBlue;
+}
+
+.boxYellow{
+    @extend box;
+    background-color: $primaryYellow;
+}
