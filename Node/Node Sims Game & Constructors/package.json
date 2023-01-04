@@ -16,7 +16,7 @@
     "inquirer": "^3.3.0",
     "node-spotify-api": "^1.0.7",
     "request": "^2.83.0",
-    "terminal-kit": "^1.13.12",
+    "terminal-kit": "^3.0.0",
     "uuid": "^3.2.1"
   },
   "devDependencies": {
